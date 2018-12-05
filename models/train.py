@@ -25,7 +25,12 @@ import json
 import datasets
 import numpy as np
 import models.params
-from models import pixeldp_cnn, pixeldp_resnet
+#from models import pixeldp_cnn
+
+from models import my_pixeldp
+
+
+
 import tensorflow as tf
 
 from flags import FLAGS
@@ -52,9 +57,10 @@ def train(hps, model, dataset=None, dir_name=None, dev='/cpu:0'):
         with open(os.path.join(dir_name, 'params.json'), 'w') as f:
             f.write(json.dumps(hps._asdict()))
 
-        if dataset == None:
-            dataset = FLAGS.dataset
-
+#        if dataset == None:
+#            dataset = FLAGS.dataset
+        
+        dataset = 'mnist'
         images, labels = datasets.build_input(
             dataset,
             FLAGS.data_path,

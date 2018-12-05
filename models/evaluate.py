@@ -25,7 +25,7 @@ import json
 import datasets
 import numpy as np
 import models.params
-from models import pixeldp_cnn, pixeldp_resnet
+#from models import pixeldp_cnn, pixeldp_resnet
 import tensorflow as tf
 
 from models.utils import robustness
@@ -55,81 +55,29 @@ def evaluate(hps, model, dataset=None, dir_name=None, rerun=False,
             # run only new models
             return
 
-        if dataset == None:
-            dataset = FLAGS.dataset
+#        if dataset == None:
+#            dataset = FLAGS.dataset
+        dataset = 'mnist'
 
         config = tf.ConfigProto(allow_soft_placement=True)
         config.gpu_options.visible_device_list = str(dev.split(":")[-1])
         sess = tf.Session(config=config)
 
-        # Special treatment of imagenet: load inception + autoencoder
-        if 'imagenet' in dir_name and hps.attack_norm_bound > .0:
-            images, labels = datasets.build_input(
-                dataset,
-                FLAGS.data_path,
-                hps.batch_size,
-                hps.image_standardization,
-                'eval'
-            )
-            autoencoder_dir_name = os.path.join(dir_name, "autoencoder_l2_l2_s1_{}_32_32_64_10_8_5_srd1221_srd1221_srd1221".format(hps.attack_norm_bound))
-            autoencoder_params = json.load(
-                open(os.path.join(autoencoder_dir_name, "params.json"), "r")
-            )
-            autoencoder_params['n_draws'] = hps.n_draws
-            # hyperparams for autoencoder
-            autoencoder_hps = tf.contrib.training.HParams()
-            for k in autoencoder_params:
-                autoencoder_hps.add_hparam(k, autoencoder_params[k])
-            autoencoder_hps.batch_size = hps.batch_size*hps.n_draws
-            autoencoder_hps.autoencoder_dir_name = autoencoder_dir_name
-            from models import autoencoder_model
-            autoencoder_model = autoencoder_model.Autoencoder(autoencoder_hps,
-                                                              images,
-                                                              images,
-                                                              "eval")
-            autoencoder_model.build_graph()
-            autoencoder_variables = []
-            for k in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
-                autoencoder_variables.append(k)
-            autoencoder_saver = tf.train.Saver(autoencoder_variables)
-            autoencoder_summary_writer = tf.summary.FileWriter(autoencoder_dir_name)
-            try:
-                autoencoder_ckpt_state = tf.train.get_checkpoint_state(autoencoder_dir_name)
-            except tf.errors.OutOfRangeError as e:
-                tf.logging.error('Cannot restore checkpoint: %s', e)
-            print('Autoencoder: Loading checkpoint',
-                            autoencoder_ckpt_state.model_checkpoint_path)
-            autoencoder_saver.restore(sess,
-                                      autoencoder_ckpt_state.model_checkpoint_path)
-            # imagenet dataset loader returns images in [0, 1]
-            images = 2*(autoencoder_model.output - 0.5)
-        else:
-            images, labels = datasets.build_input(
-                dataset,
-                FLAGS.data_path,
-                hps.batch_size,
-                hps.image_standardization,
-                'eval'
-            )
+
+
+        images, labels = datasets.build_input(
+            dataset,
+            FLAGS.data_path,
+            hps.batch_size,
+            hps.image_standardization,
+            'eval'
+        )
 
         tf.train.start_queue_runners(sess)
         model = model.Model(hps, images, labels, 'eval')
         model.build_graph()
 
-        if hps.image_size == 299 and 'imagenet' in dir_name\
-                and hps.attack_norm_bound > .0:
-            inception_variables = []
-            for k in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
-                if k in autoencoder_variables and k.name != "global_step":
-                    continue
-                if k.name.startswith("DW-encoder") or k.name.startswith("b-encoder")\
-                     or k.name.startswith("b-decoder"):
-                    continue
-                inception_variables.append(k)
-
-            saver = tf.train.Saver(inception_variables)
-        else:
-            saver = tf.train.Saver()
+        saver = tf.train.Saver()
 
         summary_writer = tf.summary.FileWriter(dir_name)
 
@@ -153,13 +101,13 @@ def evaluate(hps, model, dataset=None, dir_name=None, rerun=False,
         eval_data_size   = hps.eval_data_size
         eval_batch_size  = hps.batch_size
         eval_batch_count = int(eval_data_size / eval_batch_size)
+        
         for i in six.moves.range(eval_batch_count):
             if model.noise_scale == None:
                 args = {}  # For Madry and inception
             else:
                 args = {model.noise_scale: 1.0}
-            if 'imagenet' in dir_name and hps.attack_norm_bound > .0:
-                args = {autoencoder_model.noise_scale: 1.0}
+
             (
                 loss,
                 softmax_predictions,
@@ -259,6 +207,7 @@ def evaluate(hps, model, dataset=None, dir_name=None, rerun=False,
         # Print stuff
         precision_argmax = 1.0 * correct_prediction_argmax / total_prediction
         precision_logits = 1.0 * correct_prediction_logits / total_prediction
+
 
         precision_summ = tf.Summary()
         precision_summ.value.add(
