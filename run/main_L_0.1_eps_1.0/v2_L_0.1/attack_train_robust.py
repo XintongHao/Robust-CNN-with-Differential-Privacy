@@ -89,8 +89,8 @@ def run_one():
     )
 
     #  atk = pgd
-    atk = carlini
-#    atk = carlini_robust_precision
+#    atk = carlini
+    atk = carlini_robust_precision
     if atk == carlini_robust_precision:
         attack_params = attacks.params.AttackParamsPrec(
             restarts=1,

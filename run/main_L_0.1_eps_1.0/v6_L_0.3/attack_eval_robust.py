@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Dec  5 19:02:08 2018
+Created on Wed Dec  5 19:05:06 2018
 
 @author: xin
 """
@@ -47,15 +47,15 @@ def run_one():
         lrn_rate        = 0.01
         lrn_rte_changes = [30000]
         lrn_rte_vals    = [0.01]
-        
-        batch_size = 128
-        n_draws    = 1
+
+        batch_size = 25
+        n_draws    = 2000
 
 
     compute_robustness = True
 
     # See doc in ./models/params.py
-    L = 0.1
+    L = 0.3
     hps = models.params.HParams(
             name_prefix="",
             batch_size=batch_size,
@@ -89,8 +89,8 @@ def run_one():
     )
 
     #  atk = pgd
-    atk = carlini
-#    atk = carlini_robust_precision
+#    atk = carlini
+    atk = carlini_robust_precision
     if atk == carlini_robust_precision:
         attack_params = attacks.params.AttackParamsPrec(
             restarts=1,
@@ -119,22 +119,30 @@ def run_one():
             targeted=False,
             
             sgd_iterations=100,
-                                                    
+            
             use_softmax=True
         )
         
     _model = my_pixeldp
 
-
-    train_attack.train_one(
-        'mnist',
-        _model,
-        hps,
-        atk,
-        attack_params,
-        dev=dev)
-
     tf.reset_default_graph()
+    
+    if attack_params.attack_methodolody == 'carlini_robust_precision':
+        evaluate_attack_carlini_robust_prec.evaluate_one(
+                'mnist',
+                _model,
+                hps,
+                atk,
+                attack_params,
+                dev=dev)
+    else:
+        evaluate_attack.evaluate_one(
+                'mnist',
+                _model,
+                hps,
+                atk,
+                attack_params,
+                dev=dev)
 
 
 
@@ -145,3 +153,5 @@ def main(_):
 if __name__ == '__main__':
     tf.logging.set_verbosity(tf.logging.INFO)
     tf.app.run()
+
+

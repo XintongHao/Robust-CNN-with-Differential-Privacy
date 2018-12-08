@@ -55,7 +55,7 @@ def run_one():
     compute_robustness = True
 
     # See doc in ./models/params.py
-    L = 0.1
+    L = 0.5
     hps = models.params.HParams(
             name_prefix="",
             batch_size=batch_size,
@@ -89,8 +89,8 @@ def run_one():
     )
 
     #  atk = pgd
-    atk = carlini
-#    atk = carlini_robust_precision
+#    atk = carlini
+    atk = carlini_robust_precision
     if atk == carlini_robust_precision:
         attack_params = attacks.params.AttackParamsPrec(
             restarts=1,
