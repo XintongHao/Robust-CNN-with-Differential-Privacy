@@ -1,3 +1,3 @@
 # Robust-CNN-with-Differential-Privacy
 
-<img src="542_poster.pdf"  alt="poster" />
+<img src="Robust-CNN-with-Differential-Privacy/591_xintong.pdf"  alt="poster" />
