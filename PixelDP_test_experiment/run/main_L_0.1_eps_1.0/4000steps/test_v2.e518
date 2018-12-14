@@ -1,0 +1,201 @@
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/datasets/mnist.py:51: batch_and_drop_remainder (from tensorflow.contrib.data.python.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.batch(..., drop_remainder=True)`.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:53: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:208: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:299: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+INFO:tensorflow:Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+2018-12-05 20:00:15.337938: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-12-05 20:00:15.551605: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:3b:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-12-05 20:00:15.551634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0
+2018-12-05 20:00:15.884645: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-05 20:00:15.884694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 
+2018-12-05 20:00:15.884700: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N 
+2018-12-05 20:00:15.884931: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15129 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:3b:00.0, compute capability: 6.0)
+2018-12-05 20:00:16.222548: I tensorflow/core/common_runtime/process_util.cc:69] Creating new thread pool with default inter op setting: 28. Tune using inter_op_parallelism_threads for best performance.
+INFO:tensorflow:Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt.
+2018-12-05 20:00:17.204293: I tensorflow/core/kernels/cuda_solvers.cc:159] Creating CudaSolver handles for stream 0x1429ac80
+INFO:tensorflow:loss = 2.4134586, precision = 0.0859375, sensitivity = 0.53420097, step = 0
+INFO:tensorflow:global_step/sec: 73.3458
+INFO:tensorflow:loss = 2.1218174, precision = 0.46875, sensitivity = 0.8741452, step = 100 (1.364 sec)
+INFO:tensorflow:global_step/sec: 89.6285
+INFO:tensorflow:loss = 0.57792217, precision = 0.8515625, sensitivity = 1.6093166, step = 200 (1.116 sec)
+INFO:tensorflow:global_step/sec: 87.9042
+INFO:tensorflow:loss = 0.4512015, precision = 0.9140625, sensitivity = 1.447558, step = 300 (1.138 sec)
+INFO:tensorflow:global_step/sec: 97.5242
+INFO:tensorflow:loss = 0.46114087, precision = 0.890625, sensitivity = 1.381422, step = 400 (1.025 sec)
+INFO:tensorflow:global_step/sec: 83.6229
+INFO:tensorflow:loss = 0.3735142, precision = 0.921875, sensitivity = 1.3335444, step = 500 (1.196 sec)
+INFO:tensorflow:global_step/sec: 86.2179
+INFO:tensorflow:loss = 0.52474827, precision = 0.8828125, sensitivity = 1.3211658, step = 600 (1.160 sec)
+INFO:tensorflow:global_step/sec: 87.9731
+INFO:tensorflow:loss = 0.23646119, precision = 0.96875, sensitivity = 1.3220507, step = 700 (1.137 sec)
+INFO:tensorflow:global_step/sec: 86.0414
+INFO:tensorflow:loss = 0.29960543, precision = 0.921875, sensitivity = 1.3111429, step = 800 (1.162 sec)
+INFO:tensorflow:global_step/sec: 115.073
+INFO:tensorflow:loss = 0.29755047, precision = 0.9609375, sensitivity = 1.310528, step = 900 (0.869 sec)
+INFO:tensorflow:global_step/sec: 69.9341
+INFO:tensorflow:loss = 0.23515591, precision = 0.96875, sensitivity = 1.29796, step = 1000 (1.430 sec)
+INFO:tensorflow:global_step/sec: 87.9146
+INFO:tensorflow:loss = 0.28731507, precision = 0.9375, sensitivity = 1.2945495, step = 1100 (1.138 sec)
+INFO:tensorflow:global_step/sec: 87.1099
+INFO:tensorflow:loss = 0.23883563, precision = 0.9765625, sensitivity = 1.2929811, step = 1200 (1.148 sec)
+INFO:tensorflow:global_step/sec: 87.7746
+INFO:tensorflow:loss = 0.31668723, precision = 0.9375, sensitivity = 1.279296, step = 1300 (1.139 sec)
+INFO:tensorflow:global_step/sec: 165.016
+INFO:tensorflow:loss = 0.39117792, precision = 0.9296875, sensitivity = 1.2976093, step = 1400 (0.606 sec)
+INFO:tensorflow:global_step/sec: 61.6494
+INFO:tensorflow:loss = 0.2579921, precision = 0.9609375, sensitivity = 1.2957727, step = 1500 (1.622 sec)
+INFO:tensorflow:global_step/sec: 88.5606
+INFO:tensorflow:loss = 0.20863989, precision = 0.9765625, sensitivity = 1.2906309, step = 1600 (1.129 sec)
+INFO:tensorflow:global_step/sec: 88.3258
+INFO:tensorflow:loss = 0.17512615, precision = 0.9765625, sensitivity = 1.2970058, step = 1700 (1.132 sec)
+INFO:tensorflow:global_step/sec: 92.6358
+INFO:tensorflow:loss = 0.19927758, precision = 0.984375, sensitivity = 1.2915567, step = 1800 (1.080 sec)
+INFO:tensorflow:global_step/sec: 92.6474
+INFO:tensorflow:loss = 0.19947615, precision = 0.9765625, sensitivity = 1.2683303, step = 1900 (1.079 sec)
+INFO:tensorflow:global_step/sec: 84.2895
+INFO:tensorflow:loss = 0.32458097, precision = 0.921875, sensitivity = 1.2863889, step = 2000 (1.186 sec)
+INFO:tensorflow:global_step/sec: 87.6594
+INFO:tensorflow:loss = 0.2116067, precision = 0.96875, sensitivity = 1.3063301, step = 2100 (1.141 sec)
+INFO:tensorflow:global_step/sec: 85.3499
+INFO:tensorflow:loss = 0.25597012, precision = 0.953125, sensitivity = 1.2901543, step = 2200 (1.172 sec)
+INFO:tensorflow:global_step/sec: 112.574
+INFO:tensorflow:loss = 0.17308299, precision = 0.984375, sensitivity = 1.2943074, step = 2300 (0.888 sec)
+INFO:tensorflow:global_step/sec: 74.0191
+INFO:tensorflow:loss = 0.18126401, precision = 0.9921875, sensitivity = 1.3097485, step = 2400 (1.351 sec)
+INFO:tensorflow:global_step/sec: 88.1301
+INFO:tensorflow:loss = 0.15792724, precision = 0.9921875, sensitivity = 1.2941674, step = 2500 (1.135 sec)
+INFO:tensorflow:global_step/sec: 91.6964
+INFO:tensorflow:loss = 0.2144944, precision = 0.96875, sensitivity = 1.2881298, step = 2600 (1.090 sec)
+INFO:tensorflow:global_step/sec: 91.3634
+INFO:tensorflow:loss = 0.19043693, precision = 0.9765625, sensitivity = 1.298331, step = 2700 (1.095 sec)
+INFO:tensorflow:global_step/sec: 149.762
+INFO:tensorflow:loss = 0.17058808, precision = 0.9765625, sensitivity = 1.2819834, step = 2800 (0.668 sec)
+INFO:tensorflow:global_step/sec: 67.803
+INFO:tensorflow:loss = 0.25068635, precision = 0.9609375, sensitivity = 1.2872636, step = 2900 (1.475 sec)
+INFO:tensorflow:global_step/sec: 88.063
+INFO:tensorflow:loss = 0.18003762, precision = 0.9765625, sensitivity = 1.3002924, step = 3000 (1.136 sec)
+INFO:tensorflow:global_step/sec: 90.6707
+INFO:tensorflow:loss = 0.26359034, precision = 0.9453125, sensitivity = 1.3006363, step = 3100 (1.103 sec)
+INFO:tensorflow:global_step/sec: 88.409
+INFO:tensorflow:loss = 0.17170972, precision = 0.984375, sensitivity = 1.2908665, step = 3200 (1.131 sec)
+INFO:tensorflow:global_step/sec: 90.6425
+INFO:tensorflow:loss = 0.22162291, precision = 0.96875, sensitivity = 1.2891263, step = 3300 (1.103 sec)
+INFO:tensorflow:global_step/sec: 87.4992
+INFO:tensorflow:loss = 0.17262709, precision = 0.96875, sensitivity = 1.3022915, step = 3400 (1.143 sec)
+INFO:tensorflow:global_step/sec: 87.9649
+INFO:tensorflow:loss = 0.18848547, precision = 0.96875, sensitivity = 1.2997695, step = 3500 (1.137 sec)
+INFO:tensorflow:global_step/sec: 87.7985
+INFO:tensorflow:loss = 0.23031563, precision = 0.96875, sensitivity = 1.2916992, step = 3600 (1.139 sec)
+INFO:tensorflow:global_step/sec: 105.131
+INFO:tensorflow:loss = 0.15559617, precision = 0.984375, sensitivity = 1.3100946, step = 3700 (0.951 sec)
+INFO:tensorflow:global_step/sec: 72.4743
+INFO:tensorflow:loss = 0.15379092, precision = 0.9921875, sensitivity = 1.3037087, step = 3800 (1.380 sec)
+INFO:tensorflow:global_step/sec: 86.2019
+INFO:tensorflow:loss = 0.18417539, precision = 0.9765625, sensitivity = 1.3053467, step = 3900 (1.160 sec)
+INFO:tensorflow:Saving checkpoints for 4000 into trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt.
+2018-12-05 20:01:06.336735: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-12-05 20:01:06.549642: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:3b:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-12-05 20:01:06.549672: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0
+2018-12-05 20:01:06.883024: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-05 20:01:06.883069: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 
+2018-12-05 20:01:06.883075: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N 
+2018-12-05 20:01:06.883312: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15129 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:3b:00.0, compute capability: 6.0)
+2018-12-05 20:01:07.215370: I tensorflow/core/common_runtime/process_util.cc:69] Creating new thread pool with default inter op setting: 28. Tune using inter_op_parallelism_threads for best performance.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/datasets/mnist.py:51: batch_and_drop_remainder (from tensorflow.contrib.data.python.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.batch(..., drop_remainder=True)`.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:53: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:208: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:299: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+INFO:tensorflow:Loading checkpoint trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt-4000
+INFO:tensorflow:Restoring parameters from trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt-4000
+2018-12-05 20:01:14.751254: I tensorflow/core/kernels/cuda_solvers.cc:159] Creating CudaSolver handles for stream 0x13ff12f0
+INFO:tensorflow:loss: 0.260, precision argmax: 0.995, precision logits: 0.995
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/datasets/mnist.py:51: batch_and_drop_remainder (from tensorflow.contrib.data.python.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.batch(..., drop_remainder=True)`.
+2018-12-05 20:01:21.881491: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-12-05 20:01:22.092570: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:3b:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-12-05 20:01:22.092604: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0
+2018-12-05 20:01:22.401987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-05 20:01:22.402020: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 
+2018-12-05 20:01:22.402026: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N 
+2018-12-05 20:01:22.402237: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15129 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:3b:00.0, compute capability: 6.0)
+2018-12-05 20:01:22.717724: I tensorflow/core/common_runtime/process_util.cc:69] Creating new thread pool with default inter op setting: 28. Tune using inter_op_parallelism_threads for best performance.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:53: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:208: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:299: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+INFO:tensorflow:Restoring parameters from trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt-4000
+2018-12-05 20:08:52.280412: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-12-05 20:08:52.497362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1405] Found device 0 with properties: 
+name: Tesla P100-PCIE-16GB major: 6 minor: 0 memoryClockRate(GHz): 1.3285
+pciBusID: 0000:3b:00.0
+totalMemory: 15.90GiB freeMemory: 15.61GiB
+2018-12-05 20:08:52.497401: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1484] Adding visible gpu devices: 0
+2018-12-05 20:08:52.816867: I tensorflow/core/common_runtime/gpu/gpu_device.cc:965] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-05 20:08:52.816900: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971]      0 
+2018-12-05 20:08:52.816905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] 0:   N 
+2018-12-05 20:08:52.817118: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1097] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15127 MB memory) -> physical GPU (device: 0, name: Tesla P100-PCIE-16GB, pci bus id: 0000:3b:00.0, compute capability: 6.0)
+2018-12-05 20:08:53.135641: I tensorflow/core/common_runtime/process_util.cc:69] Creating new thread pool with default inter op setting: 28. Tune using inter_op_parallelism_threads for best performance.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:53: get_or_create_global_step (from tensorflow.contrib.framework.python.ops.variables) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.get_or_create_global_step
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:208: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+WARNING:tensorflow:From /projectnb/cs542/hxtong/591/test_v2/models/my_pixeldp.py:299: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See @{tf.nn.softmax_cross_entropy_with_logits_v2}.
+
+INFO:tensorflow:Restoring parameters from trained_models/my_pixeldp_attack_norm_l2_size_0.1_1_prenoise_layers_sensitivity_l2_scheme_bound_activation_postnoise/model.ckpt-4000
